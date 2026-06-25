@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery | Royal Computers &amp; Communications</title>
+    <meta name="description" content="Browse through the Royal Computers &amp; Communications gallery. View premium desktop setups, laptops, luxury gaming custom builds, and security network installations.">
+    <meta name="keywords" content="Royal Computers Gallery, Luxury PC Builds, Laptop Collection Rajahmundry">
+    <meta name="author" content="Mohammed Mansur Ahmed Khan">
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- FontAwesome 6 Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+    
+    <!-- AOS Scroll Animations CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Custom Luxury Styling -->
+    <link href="css/style.css" rel="stylesheet">
+
+    <style>
+        /* =============================================
+           GALLERY PAGE – SELF-CONTAINED STYLES
+           ============================================= */
+
+        /* Filter Buttons */
+        .gallery-filter-wrap {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 50px;
+        }
+        .gf-btn {
+            min-width: 130px;
+            height: 46px;
+            padding: 0 22px;
+            background: transparent;
+            border: 1.5px solid rgba(223,183,92,0.45);
+            color: #a6a6a6;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            border-radius: 0;
+            cursor: pointer;
+            transition: all 0.35s cubic-bezier(0.16,1,0.3,1);
+            position: relative;
+            overflow: hidden;
+        }
+        .gf-btn::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, #f7e7c4 0%, #dfb75c 50%, #b88d32 100%);
+            opacity: 0;
+            transition: opacity 0.35s ease;
+            z-index: 0;
+        }
+        .gf-btn span { position: relative; z-index: 1; }
+        .gf-btn:hover {
+            border-color: #dfb75c;
+            color: #0a0a0a;
+            box-shadow: 0 0 18px rgba(223,183,92,0.5), 0 4px 18px rgba(223,183,92,0.25);
+            transform: translateY(-2px);
+        }
+        .gf-btn:hover::before { opacity: 1; }
+        .gf-btn.active {
+            border-color: #dfb75c;
+            color: #0a0a0a;
+            box-shadow: 0 0 22px rgba(223,183,92,0.6), 0 4px 20px rgba(223,183,92,0.3);
+        }
+        .gf-btn.active::before { opacity: 1; }
+
+        /* Gallery Grid */
+        .gallery-grid-new {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 22px;
+        }
+        @media (max-width: 991.98px) { .gallery-grid-new { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 575.98px)  { .gallery-grid-new { grid-template-columns: 1fr; } }
+
+        /* Gallery Card */
+        .gc {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1.5px solid rgba(223,183,92,0.18);
+            height: 250px;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.45);
+            transition: all 0.4s cubic-bezier(0.16,1,0.3,1);
+
+            /* filter fade */
+            opacity: 1;
+            transform: scale(1) translateY(0);
+        }
+        .gc.hidden {
+            opacity: 0;
+            transform: scale(0.92) translateY(10px);
+            pointer-events: none;
+            position: absolute;
+            visibility: hidden;
+        }
+        .gc:hover {
+            border-color: #dfb75c;
+            box-shadow: 0 8px 35px rgba(223,183,92,0.4), 0 0 0 1px rgba(223,183,92,0.25);
+            transform: translateY(-7px) scale(1.01);
+        }
+        .gc img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.55s cubic-bezier(0.16,1,0.3,1);
+        }
+        .gc:hover img { transform: scale(1.1); }
+
+        .gc-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 30%, rgba(5,5,5,0.88) 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 18px 16px;
+            opacity: 0;
+            transition: opacity 0.38s ease;
+        }
+        .gc:hover .gc-overlay { opacity: 1; }
+
+        .gc-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.7);
+            transition: transform 0.38s cubic-bezier(0.16,1,0.3,1);
+            color: #dfb75c;
+            font-size: 1.6rem;
+            opacity: 0;
+        }
+        .gc:hover .gc-icon {
+            transform: translate(-50%, -50%) scale(1);
+            opacity: 1;
+        }
+        .gc-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 4px;
+            transform: translateY(8px);
+            transition: transform 0.35s ease;
+        }
+        .gc:hover .gc-title { transform: translateY(0); }
+        .gc-cat {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #dfb75c;
+            font-family: 'Outfit', sans-serif;
+            transform: translateY(8px);
+            transition: transform 0.35s ease 0.05s;
+        }
+        .gc:hover .gc-cat { transform: translateY(0); }
+
+        /* Grid wrapper - needed for absolute hidden items */
+        .gallery-grid-outer {
+            position: relative;
+        }
+
+        /* Lightbox */
+        .lb-modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 99999;
+            background: rgba(0,0,0,0.94);
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .lb-modal.open { display: flex; }
+        .lb-inner {
+            position: relative;
+            max-width: 880px;
+            width: 100%;
+            text-align: center;
+        }
+        .lb-img {
+            max-width: 100%;
+            max-height: 80vh;
+            border-radius: 12px;
+            border: 1.5px solid rgba(223,183,92,0.4);
+            box-shadow: 0 0 50px rgba(223,183,92,0.2);
+            object-fit: contain;
+        }
+        .lb-close {
+            position: absolute;
+            top: -18px;
+            right: -18px;
+            width: 42px;
+            height: 42px;
+            background: linear-gradient(135deg, #f7e7c4 0%, #dfb75c 100%);
+            border: none;
+            border-radius: 50%;
+            color: #0a0a0a;
+            font-size: 1.1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease;
+            z-index: 2;
+        }
+        .lb-close:hover { transform: rotate(90deg) scale(1.1); }
+        .lb-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 46px;
+            height: 46px;
+            background: rgba(18,18,18,0.8);
+            border: 1.5px solid rgba(223,183,92,0.4);
+            border-radius: 50%;
+            color: #dfb75c;
+            font-size: 1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        .lb-nav:hover {
+            background: linear-gradient(135deg, #f7e7c4 0%, #dfb75c 100%);
+            color: #0a0a0a;
+            box-shadow: 0 0 18px rgba(223,183,92,0.5);
+        }
+        .lb-prev { left: -60px; }
+        .lb-next { right: -60px; }
+        .lb-caption {
+            margin-top: 14px;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.7);
+            letter-spacing: 1px;
+        }
+        @media (max-width: 767.98px) {
+            .lb-prev { left: 4px; top: auto; bottom: -55px; transform: none; }
+            .lb-next { right: 4px; top: auto; bottom: -55px; transform: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ==========================================
+         PRELOADER
+         ========================================== -->
+    <div id="preloader">
+        <div class="loader-content">
+            <div class="loader-logo">ROYAL <span>COMPUTERS</span></div>
+            <div class="loader-spinner"></div>
+        </div>
+    </div>
+
+    <!-- ==========================================
+         SCROLL PROGRESS BAR
+         ========================================== -->
+    <div class="scroll-progress-container">
+        <div class="scroll-progress-bar"></div>
+    </div>
+
+    <!-- ==========================================
+         NAVBAR
+         ========================================== -->
+    <nav class="navbar navbar-expand-lg fixed-top navbar-dark navbar-scrolled">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <div class="navbar-logo-circle">
+                    <img src="images/logo.png" alt="Royal Computers Logo">
+                </div>
+                ROYAL <span>COMPUTERS</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#royalNavbar" aria-controls="royalNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="collapse navbar-collapse" id="royalNavbar">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="service.html">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="gallery.html">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                    <li class="nav-item ms-lg-3 nav-btn-container">
+                        <a class="btn btn-gold" href="contact.html">Book Now</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ==========================================
+         GALLERY BANNER
+         ========================================== -->
+    <section class="gallery-banner-section">
+        <!-- Dark overlay -->
+        <div class="gallery-banner-overlay"></div>
+        <!-- Centered content -->
+        <div class="gallery-banner-content" data-aos="fade-up">
+            <p class="gallery-banner-sub">Our Showcase</p>
+            <h1 class="gallery-banner-title">Our <span>Gallery</span></h1>
+            <p class="gallery-banner-desc">A showcase of our premium products, setups, and expert service work</p>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb justify-content-center mb-0">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Gallery</li>
+                </ol>
+            </nav>
+        </div>
+    </section>
+
+    <style>
+        /* ---- Gallery Banner ---- */
+        .gallery-banner-section {
+            position: relative;
+            width: 100%;
+            height: 480px;
+            background-image: url('https://images.unsplash.com/photo-1593640408182-31c70c8268f5?q=80&w=1920&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        /* Fallback if fixed attachment causes issues on mobile */
+        @media (max-width: 767.98px) {
+            .gallery-banner-section {
+                height: 380px;
+                background-attachment: scroll;
+            }
+        }
+        .gallery-banner-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                135deg,
+                rgba(3, 3, 3, 0.80) 0%,
+                rgba(10, 10, 10, 0.65) 50%,
+                rgba(3, 3, 3, 0.82) 100%
+            );
+            z-index: 1;
+        }
+        .gallery-banner-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 0 20px;
+            width: 100%;
+        }
+        .gallery-banner-sub {
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.82rem;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            color: #dfb75c;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        .gallery-banner-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.6rem;
+            font-weight: 700;
+            color: #ffffff;
+            line-height: 1.15;
+            margin-bottom: 16px;
+            text-shadow: 0 4px 30px rgba(0,0,0,0.6);
+        }
+        .gallery-banner-title span {
+            background: linear-gradient(135deg, #f7e7c4 0%, #dfb75c 50%, #b88d32 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .gallery-banner-desc {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1rem;
+            color: rgba(255,255,255,0.72);
+            margin-bottom: 22px;
+            letter-spacing: 0.5px;
+        }
+        /* Breadcrumb inside banner */
+        .gallery-banner-section .breadcrumb {
+            justify-content: center;
+            background: transparent;
+            padding: 0;
+            margin: 0;
+        }
+        .gallery-banner-section .breadcrumb-item a {
+            color: #dfb75c;
+            text-decoration: none;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.82rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+        .gallery-banner-section .breadcrumb-item a:hover { color: #f7e7c4; }
+        .gallery-banner-section .breadcrumb-item.active {
+            color: rgba(255,255,255,0.55);
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.82rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        .gallery-banner-section .breadcrumb-item + .breadcrumb-item::before {
+            color: rgba(223,183,92,0.5);
+            content: "/";
+        }
+        @media (max-width: 575.98px) {
+            .gallery-banner-title { font-size: 2.4rem; }
+            .gallery-banner-desc  { font-size: 0.88rem; }
+        }
+    </style>
+
+    <!-- ==========================================
+         GALLERY SECTION
+         ========================================== -->
+    <section class="section-padding bg-dark" id="gallery-section" style="padding-top: 90px;">
+        <div class="container">
+
+            <!-- Section Heading -->
+            <div class="text-center mb-5" data-aos="fade-up">
+                <span class="section-subtitle">Our Showcase</span>
+                <h2 class="section-title">Premium Collection</h2>
+            </div>
+
+            <!-- Filter Buttons -->
+            <div class="gallery-filter-wrap" data-aos="fade-up" data-aos-delay="100">
+                <button class="gf-btn active" data-filter="all"><span>All</span></button>
+                <button class="gf-btn" data-filter="computers"><span>Computers</span></button>
+                <button class="gf-btn" data-filter="laptops"><span>Laptops</span></button>
+                <button class="gf-btn" data-filter="accessories"><span>Accessories</span></button>
+                <button class="gf-btn" data-filter="services"><span>Services</span></button>
+            </div>
+
+            <!-- Gallery Grid — 12 cards, 4×3 on desktop -->
+            <div class="gallery-grid-outer" data-aos="fade-up" data-aos-delay="200">
+                <div class="gallery-grid-new" id="galleryGrid">
+
+                    <!-- === COMPUTERS (3) === -->
+                    <div class="gc" data-cat="computers"
+                         data-img="https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=1200&auto=format&fit=crop"
+                         data-title="Assembled Gaming Rig">
+                        <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=600&auto=format&fit=crop" alt="Assembled Gaming Rig" loading="lazy">
+                        <div class="gc-overlay">
+                            <i class="fas fa-magnifying-glass-plus gc-icon"></i>
+                            <div class="gc-title">Assembled Gaming Rig</div>
+                            <div class="gc-cat">Computers</div>
+                        </div>
+                    </div>
+
+                    <div class="gc" data-cat="computers"
+                         data-img="https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?q=80&w=1200&auto=format&fit=crop"
+                         data-title="Dual Monitor Workstation">
+                        <img src="https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?q=80&w=600&auto=format&fit=crop" alt="Dual Monitor Workstation" loading="lazy">
+                        <div class="gc-overlay">
+                            <i class="fas fa-magnifying-glass-plus gc-icon"></i>
+                            <div class="gc-title">Dual Monitor Workstation</div>
+                            <div class="gc-cat">Computers</div>
+                        </div>
+                    </div>
+
+                    <div class="gc" data-cat="computers"
+                         data-img="https://images.unsplash.com/photo-1587202372775-e229f172b9d7?q=80&w=1200&auto=format&fit=crop"
+                         data-title="Custom Desktop Build">
+                        <img src="https://images.unsplash.com/photo-1587202372775-e229f172b9d7?q=80&w=600&auto=format&fit=crop" alt="Custom Desktop Build" loading="lazy">
+                        <div class="gc-overlay">
+                            <i class="fas fa-magnifying-glass-plus gc-icon"></i>
+                            <div class="gc-title">Custom Desktop Build</div>
+                            <div class="gc-cat">Computers</div>
+                        </div>
+                    </div>
+
+                    <!-- === LAPTOPS (3) === -->
+                    <div class="gc" data-cat="laptops"
+                         data-img="https://images.unsplash.com/photo-1593642632823-8f785ba67e45?q=80&w=1200&auto=format&fit=crop"
+                         data-title="Corporate Ultrabook">
+                        <img src="https://images.unsplash.com/photo-1593642632823-8f785ba67e45?q=80&w=600&auto=format&fit=crop" alt="Corporate Ultrabook" loading="lazy">
+                        <div class="gc-overlay">
+                            <i class="fas fa-magnifying-glass-plus gc-icon"></i>
+                            <div class="gc-title">Corporate Ultrabook</div>
+                            <div class="gc-cat">Laptops</div>
+                        </div>
+                    </div>
+
+                    <div class="gc" data-cat="laptops"
+                         data-img="https://images.unsplash.com/photo-1618424181497-157f25b6ddd5?q=80&w=1200&auto=format&fit=crop"
+                         data-title="Premium Refurbished Laptop">
+                        <img src="https://images.unsplash.com/photo-1618424181497-157f25b6ddd5?q=80&w=600&auto=format&fit=crop" alt="Premium Refurbished Laptop" loading="lazy">
+                        <div class="gc-overlay">
+                            <i class="fas fa-magnifying-glass-plus gc-icon"></i>
+                            <div class="gc-title">Premium Refurbished Laptop</div>
+                            <div class="gc-cat">Laptops</div>
+                        </div>
+                    </div>
+
+                    <div class="gc" data-cat="laptops"
+                         data-img="https://images.unsplash.com/photo-1611078489935-0cb964de46d6?q=80&w=1200&auto=format&fit=crop"
+                         data-title="High-Performance Notebook">
+                        <img src="https://images.unsplash.com/photo-1611078489935-0cb964de46d6?q=80&w=600&auto=format&fit=crop" alt="High-Performance Notebook" loading="lazy">
+                        <div class="gc-overlay">
+                            <i class="fas fa-magnifying-glass-plus gc-icon"></i>
+                            <div class="gc-title">High-Performance Notebook</div>
+                            <div class="gc-cat">Laptops</div>
+                        </div>
+                    </div>
+
+                    <!-- === ACCESSORIES (3) === -->
+                    <div class="gc" data-cat="accessories"
+                         data-img="https://images.unsplash.com/photo-1587829741301-dc798b83add3?q=80&w=1200&auto=format&fit=crop"
+                         data-title="Mechanical Keyboard">
+                        <img src="https://images.unsplash.com/photo-1587829741301-dc798b83add3?q=80&w=600&auto=format&fit=crop" alt="Mechanical Keyboard" loading="lazy">
+                        <div class="gc-overlay">
+                            <i class="fas fa-magnifying-glass-plus gc-icon"></i>
+                            <div class="gc-title">Mechanical Keyboard</div>
+                            <div class="gc-cat">Accessories</div>
+                        </div>
+                    </div>
+
+                    <div class="gc" data-cat="accessories"
+                         data-img="https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?q=80&w=1200&auto=format&fit=crop"
+                         data-title="Precision Gaming Mouse">
+                        <img src="https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?q=80&w=600&auto=format&fit=crop" alt="Precision Gaming Mouse" loading="lazy">
+                        <div class="gc-overlay">
+                            <i class="fas fa-magnifying-glass-plus gc-icon"></i>
+                            <div class="gc-title">Precision Gaming Mouse</div>
+                            <div class="gc-cat">Accessories</div>
+                        </div>
+                    </div>
+
+                    <div class="gc" data-cat="accessories"
+                         data-img="https://images.unsplash.com/photo-1598550476439-6847785fcea6?q=80&w=1200&auto=format&fit=crop"
+                         data-title="Gaming Headset & Peripherals">
+                        <img src="https://images.unsplash.com/photo-1598550476439-6847785fcea6?q=80&w=600&auto=format&fit=crop" alt="Gaming Headset" loading="lazy">
+                        <div class="gc-overlay">
+                            <i class="fas fa-magnifying-glass-plus gc-icon"></i>
+                            <div class="gc-title">Gaming Headset &amp; Peripherals</div>
+                            <div class="gc-cat">Accessories</div>
+                        </div>
+                    </div>
+
+                    <!-- === SERVICES (3) === -->
+                    <div class="gc" data-cat="services"
+                         data-img="https://images.unsplash.com/photo-1562408590-e32931084e23?q=80&w=1200&auto=format&fit=crop"
+                         data-title="Hardware Diagnostics">
+                        <img src="https://images.unsplash.com/photo-1562408590-e32931084e23?q=80&w=600&auto=format&fit=crop" alt="Hardware Diagnostics" loading="lazy">
+                        <div class="gc-overlay">
+                            <i class="fas fa-magnifying-glass-plus gc-icon"></i>
+                            <div class="gc-title">Hardware Diagnostics</div>
+                            <div class="gc-cat">Services</div>
+                        </div>
+                    </div>
+
+                    <div class="gc" data-cat="services"
+                         data-img="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=1200&auto=format&fit=crop"
+                         data-title="Structured Network Cabling">
+                        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=600&auto=format&fit=crop" alt="Structured Network Cabling" loading="lazy">
+                        <div class="gc-overlay">
+                            <i class="fas fa-magnifying-glass-plus gc-icon"></i>
+                            <div class="gc-title">Structured Network Cabling</div>
+                            <div class="gc-cat">Services</div>
+                        </div>
+                    </div>
+
+                    <div class="gc" data-cat="services"
+                         data-img="https://images.unsplash.com/photo-1616440347437-b1c73416efc2?q=80&w=1200&auto=format&fit=crop"
+                         data-title="CCTV Security Systems">
+                        <img src="https://images.unsplash.com/photo-1616440347437-b1c73416efc2?q=80&w=600&auto=format&fit=crop" alt="CCTV Security Systems" loading="lazy">
+                        <div class="gc-overlay">
+                            <i class="fas fa-magnifying-glass-plus gc-icon"></i>
+                            <div class="gc-title">CCTV Security Systems</div>
+                            <div class="gc-cat">Services</div>
+                        </div>
+                    </div>
+
+                </div><!-- /gallery-grid-new -->
+            </div><!-- /gallery-grid-outer -->
+
+        </div>
+    </section>
+
+    <!-- ==========================================
+         LIGHTBOX MODAL
+         ========================================== -->
+    <div class="lb-modal" id="lbModal" role="dialog" aria-modal="true" aria-label="Image lightbox">
+        <div class="lb-inner">
+            <button class="lb-close" id="lbClose" aria-label="Close"><i class="fas fa-xmark"></i></button>
+            <button class="lb-nav lb-prev" id="lbPrev" aria-label="Previous image"><i class="fas fa-chevron-left"></i></button>
+            <img class="lb-img" id="lbImg" src="" alt="Gallery preview">
+            <button class="lb-nav lb-next" id="lbNext" aria-label="Next image"><i class="fas fa-chevron-right"></i></button>
+            <div class="lb-caption" id="lbCaption"></div>
+        </div>
+    </div>
+
+    <!-- ==========================================
+         FOOTER
+         ========================================== -->
+    <footer>
+        <div class="container">
+            <div class="row g-5">
+                <!-- Column 1: Info -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer-logo">ROYAL <span>COMPUTERS</span></div>
+                    <p class="footer-desc">Premium sales &amp; service centre dealing with branded laptops, desktops, assembled rigs, CCTV cameras, and all computer accessories. Experience premium corporate execution.</p>
+                    <div class="social-links-grid">
+                        <a href="https://facebook.com" target="_blank" class="social-icon-btn"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://instagram.com" target="_blank" class="social-icon-btn"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/919849520278" target="_blank" class="social-icon-btn"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://youtube.com" target="_blank" class="social-icon-btn"><i class="fab fa-youtube"></i></a>
+                        <a href="https://linkedin.com" target="_blank" class="social-icon-btn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <!-- Column 2: Quick Links -->
+                <div class="col-lg-2 col-md-6">
+                    <h5 class="footer-heading">Quick Links</h5>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="service.html">Services</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Services -->
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="footer-heading">Our Services</h5>
+                    <ul class="footer-links">
+                        <li><a href="service.html">Desktop &amp; Laptop Sales</a></li>
+                        <li><a href="service.html">Computer Diagnostics</a></li>
+                        <li><a href="service.html">CCTV Systems Setup</a></li>
+                        <li><a href="service.html">Custom Workstation Builds</a></li>
+                        <li><a href="service.html">Annual Maintenance Contract</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Address Info -->
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="footer-heading">Contact Info</h5>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-location-dot"></i>
+                        <span>36-26-3, Ballavari Street,<br>Behind Kotipalli bus stand,<br>Innispeta, Rajamahendravaram,<br>East Godavari District, AP - 533101</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+91 9849520278</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>khan_mamd@yahoo.co.in</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div class="footer-bottom">
+                <div class="row align-items-center">
+                    <div class="col-md-6 text-center text-md-start">
+                        <p class="copyright-text">&copy; 2026 Royal Computers &amp; Communications. All Rights Reserved. Designed with luxury.</p>
+                    </div>
+                    <div class="col-md-6 text-center text-md-end mt-2 mt-md-0">
+                        <p class="copyright-text" style="font-size: 0.8rem;">Owner: Mohammed Mansur Ahmed Khan</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==========================================
+         FLOATING WIDGETS
+         ========================================== -->
+    <a href="https://wa.me/919849520278?text=Hello%20Royal%20Computers,%20I%20would%20like%20to%20inquire%20about%20your%20services." class="floating-whatsapp" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <div id="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- ==========================================
+         SCRIPT FILES
+         ========================================== -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true, easing: 'ease-out-cubic' });
+    </script>
+
+    <!-- Custom JS (preloader, navbar, counter, etc.) -->
+    <script src="js/main.js"></script>
+
+    <!-- ==========================================
+         GALLERY FILTER + LIGHTBOX (self-contained)
+         ========================================== -->
+    <script>
+    (function () {
+        'use strict';
+
+        /* ---- DOM ---- */
+        const filterBtns  = document.querySelectorAll('.gf-btn');
+        const cards       = document.querySelectorAll('#galleryGrid .gc');
+
+        const lbModal     = document.getElementById('lbModal');
+        const lbImg       = document.getElementById('lbImg');
+        const lbCaption   = document.getElementById('lbCaption');
+        const lbClose     = document.getElementById('lbClose');
+        const lbPrev      = document.getElementById('lbPrev');
+        const lbNext      = document.getElementById('lbNext');
+
+        let visibleCards  = [];   // currently visible cards
+        let lbIdx         = 0;    // current lightbox index
+
+        /* ---- FILTER LOGIC ---- */
+        function applyFilter(filterValue) {
+            visibleCards = [];
+
+            cards.forEach(card => {
+                const cat = card.getAttribute('data-cat');
+                const show = filterValue === 'all' || cat === filterValue;
+
+                if (show) {
+                    card.classList.remove('hidden');
+                    card.style.display = '';
+                    visibleCards.push(card);
+                } else {
+                    card.classList.add('hidden');
+                    // Use timeout to let opacity transition finish before hiding
+                    setTimeout(() => {
+                        if (card.classList.contains('hidden')) {
+                            card.style.display = 'none';
+                        }
+                    }, 380);
+                }
+            });
+        }
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', function () {
+                // active state
+                filterBtns.forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+
+                applyFilter(this.getAttribute('data-filter'));
+            });
+        });
+
+        // Initialise with all visible
+        applyFilter('all');
+
+        /* ---- LIGHTBOX LOGIC ---- */
+        function openLightbox(idx) {
+            if (!visibleCards.length) return;
+            lbIdx = (idx + visibleCards.length) % visibleCards.length;
+            const card = visibleCards[lbIdx];
+            lbImg.src     = card.getAttribute('data-img');
+            lbCaption.textContent = card.getAttribute('data-title') || '';
+            lbModal.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            lbModal.classList.remove('open');
+            lbImg.src = '';
+            document.body.style.overflow = '';
+        }
+
+        // Open on card click
+        cards.forEach(card => {
+            card.addEventListener('click', function () {
+                // rebuild visible list in case filter was applied
+                visibleCards = [...document.querySelectorAll('#galleryGrid .gc:not(.hidden)')];
+                const idx = visibleCards.indexOf(this);
+                openLightbox(idx >= 0 ? idx : 0);
+            });
+        });
+
+        lbClose.addEventListener('click', closeLightbox);
+        lbModal.addEventListener('click', function (e) {
+            if (e.target === lbModal) closeLightbox();
+        });
+        lbPrev.addEventListener('click', function (e) {
+            e.stopPropagation();
+            openLightbox(lbIdx - 1);
+        });
+        lbNext.addEventListener('click', function (e) {
+            e.stopPropagation();
+            openLightbox(lbIdx + 1);
+        });
+        document.addEventListener('keydown', function (e) {
+            if (!lbModal.classList.contains('open')) return;
+            if (e.key === 'Escape')      closeLightbox();
+            if (e.key === 'ArrowLeft')   openLightbox(lbIdx - 1);
+            if (e.key === 'ArrowRight')  openLightbox(lbIdx + 1);
+        });
+    })();
+    </script>
+
+</body>
+</html>

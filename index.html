@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Royal Computers & Communications | Luxury Tech Sales & Service</title>
+    <meta name="description" content="Royal Computers & Communications offers premium sales & service for laptops, desktops, printers, CCTV, and accessories in Rajamahendravaram. Experience luxury service.">
+    <meta name="keywords" content="Royal Computers, Premium Computer Store, Laptop Service, CCTV Installation, Rajahmundry Computers, Mansur Khan">
+    <meta name="author" content="Mohammed Mansur Ahmed Khan">
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- FontAwesome 6 Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+    
+    <!-- AOS Scroll Animations CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Custom Luxury Styling -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+
+    <!-- ==========================================
+         PRELOADER
+         ========================================== -->
+    <div id="preloader">
+        <div class="loader-content">
+            <div class="loader-logo">ROYAL <span>COMPUTERS</span></div>
+            <div class="loader-spinner"></div>
+        </div>
+    </div>
+
+    <!-- ==========================================
+         SCROLL PROGRESS BAR
+         ========================================== -->
+    <div class="scroll-progress-container">
+        <div class="scroll-progress-bar"></div>
+    </div>
+
+    
+
+    <!-- ==========================================
+         NAVBAR
+         ========================================== -->
+    <nav class="navbar navbar-expand-lg fixed-top navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <div class="navbar-logo-circle">
+                    <img src="images/logo.png" alt="Royal Computers Logo">
+                </div>
+                ROYAL <span>COMPUTERS</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#royalNavbar" aria-controls="royalNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="collapse navbar-collapse" id="royalNavbar">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="service.html">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="gallery.html">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                    <li class="nav-item ms-lg-3 nav-btn-container">
+                        <a class="btn btn-gold" href="contact.html">Book Now</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ==========================================
+         HERO SECTION: VIDEO BACKGROUND
+         ========================================== -->
+    <section class="hero-video-container" id="hero-section">
+        <!-- Looping tech video background -->
+        <video class="hero-video-bg" autoplay muted loop playsinline>
+            <source src="9431253-hd_1920_1080_25fps.mp4" type="video/mp4">
+            <!-- Fallback gradient if video fails to load -->
+        </video>
+
+        <!-- Dark gold-tinted overlay -->
+        <div class="hero-video-overlay"></div>
+
+        <!-- Floating Particles Canvas -->
+        <canvas id="particles-canvas"></canvas>
+
+        <!-- Hero Content -->
+        <div class="hero-video-content">
+            <div class="section-subtitle">Premium Technology Partners</div>
+            <h1>Elevate Your <span class="text-gold-gradient">Digital</span> Experience</h1>
+            <p class="hero-desc">Discover the finest selection of branded laptops, custom desktops, and professional accessories. Royal Computers — Where luxury meets precision technology.</p>
+            <div class="hero-actions">
+                <a href="service.html" class="btn btn-gold me-3 mb-2">Explore Services</a>
+                <a href="contact.html" class="btn btn-outline-gold mb-2">Contact Us</a>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <a href="#stats-section" class="scroll-indicator">
+            <div class="scroll-indicator-mouse"></div>
+            <span class="scroll-indicator-label">Scroll</span>
+        </a>
+    </section>
+
+    <!-- ==========================================
+         STATISTICS COUNTER SECTION
+         ========================================== -->
+    <section class="section-padding bg-dark" id="stats-section">
+        <div class="container">
+            <div class="row g-4">
+                <!-- Counter 1 -->
+                <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="glass-card text-center py-4">
+                        <div class="counter-box">
+                            <span class="counter-number" data-target="5000" data-suffix="+">0+</span>
+                            <h4 class="counter-title">Happy Customers</h4>
+                        </div>
+                    </div>
+                </div>
+                <!-- Counter 2 -->
+                <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="glass-card text-center py-4">
+                        <div class="counter-box">
+                            <span class="counter-number" data-target="10" data-suffix="+ Years">0+ Years</span>
+                            <h4 class="counter-title">Experience</h4>
+                        </div>
+                    </div>
+                </div>
+                <!-- Counter 3 -->
+                <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="glass-card text-center py-4">
+                        <div class="counter-box">
+                            <span class="counter-number" data-target="100" data-suffix="+ Brands">0+ Brands</span>
+                            <h4 class="counter-title">Available</h4>
+                        </div>
+                    </div>
+                </div>
+                <!-- Counter 4 -->
+                <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="glass-card text-center py-4">
+                        <div class="counter-box">
+                            <span class="counter-number" data-target="24" data-suffix="/7 Support">0/7 Support</span>
+                            <h4 class="counter-title">Support Hours</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         FEATURED SERVICES SECTION
+         ========================================== -->
+    <section class="section-padding bg-dark" style="border-top: 1px solid var(--border-glass);">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <span class="section-subtitle">Excellence In Every Domain</span>
+                <h2 class="section-title">Featured Services</h2>
+            </div>
+            
+            <div class="row g-4">
+                <!-- Service 1 -->
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-card">
+                        <div class="service-card-img">
+                            <img src="https://images.unsplash.com/photo-1547082299-de196ea013d6?q=80&w=600&auto=format&fit=crop" alt="Desktop Sales">
+                        </div>
+                        <div class="service-card-body">
+                            <h3 class="service-card-title">Desktop Sales</h3>
+                            <p class="service-card-text">Premium branded desktops and customized performance gaming configurations tailored to perfection.</p>
+                            <a href="service.html" class="btn btn-outline-gold w-100">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-card">
+                        <div class="service-card-img">
+                            <img src="https://images.unsplash.com/photo-1593642632823-8f785ba67e45?q=80&w=600&auto=format&fit=crop" alt="Laptop Sales">
+                        </div>
+                        <div class="service-card-body">
+                            <h3 class="service-card-title">Laptop Sales</h3>
+                            <p class="service-card-text">Latest business notebook computers, ultrabooks, and premium refurbished laptops from world-leading brands.</p>
+                            <a href="service.html" class="btn btn-outline-gold w-100">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="service-card">
+                        <div class="service-card-img">
+                            <img src="https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?q=80&w=600&auto=format&fit=crop" alt="Computer Repair">
+                        </div>
+                        <div class="service-card-body">
+                            <h3 class="service-card-title">Computer Repair</h3>
+                            <p class="service-card-text">Professional diagnostic repairs, hardware upgrades, and screen fixes executed by expert technicians.</p>
+                            <a href="service.html" class="btn btn-outline-gold w-100">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="service-card">
+                        <div class="service-card-img">
+                            <img src="https://images.unsplash.com/photo-1616440347437-b1c73416efc2?q=80&w=600&auto=format&fit=crop" alt="CCTV Installation">
+                        </div>
+                        <div class="service-card-body">
+                            <h3 class="service-card-title">CCTV Installation</h3>
+                            <p class="service-card-text">High-definition security cameras and comprehensive remote surveillance configurations for safety.</p>
+                            <a href="service.html" class="btn btn-outline-gold w-100">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         WHY CHOOSE ROYAL COMPUTERS
+         ========================================== -->
+    <section class="section-padding bg-dark" style="border-top: 1px solid var(--border-glass);">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <span class="section-subtitle">Crafting Digital Perfection</span>
+                    <h2 class="section-title text-start">Why Choose Royal Computers</h2>
+                    <p>Under the expert stewardship of Mohammed Mansur Ahmed Khan, Royal Computers & Communications has built a decade-long reputation of trust, premium service quality, and genuine distribution across Rajamahendravaram.</p>
+                    <p>We bridge the gap between high-end digital requirements and absolute technical execution. Every customer receives dedicated premium advisory and precision engineering support.</p>
+                    <a href="about.html" class="btn btn-gold">About Our Journey</a>
+                </div>
+                
+                <div class="col-lg-6">
+                    <div class="row g-4">
+                        <!-- Card 1 -->
+                        <div class="col-sm-6" data-aos="fade-up" data-aos-delay="100">
+                            <div class="glass-card">
+                                <div>
+                                    <div class="icon-box">
+                                        <i class="fas fa-shield-alt"></i>
+                                    </div>
+                                    <h4 class="mb-3">Genuine Products</h4>
+                                    <p>We deal only with authentic premium brands ensuring valid warranties and absolute reliability.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 2 -->
+                        <div class="col-sm-6" data-aos="fade-up" data-aos-delay="200">
+                            <div class="glass-card">
+                                <div>
+                                    <div class="icon-box">
+                                        <i class="fas fa-user-tie"></i>
+                                    </div>
+                                    <h4 class="mb-3">Expert Support</h4>
+                                    <p >Our team of certified technicians provides precision solutions for computers, networks, and surveillance.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 3 -->
+                        <div class="col-12" data-aos="fade-up" data-aos-delay="300">
+                            <div class="glass-card flex-row align-items-center p-4">
+                                <div class="icon-box mb-0 me-4 flex-shrink-0">
+                                    <i class="fas fa-gem"></i>
+                                </div>
+                                <div>
+                                    <h4 class="mb-2">Luxury Service Experience</h4>
+                                    <p>Dedicated consulting sessions, custom premium packaging, and fast delivery timelines.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         ADDITIONAL CONTENT SECTION
+         ========================================== -->
+    <section class="section-padding bg-dark" style="border-top: 1px solid var(--border-glass); background: radial-gradient(circle at 50% 50%, rgba(223, 183, 92, 0.05) 0%, transparent 80%);">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-5 order-lg-2" data-aos="fade-left">
+                    <img src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?q=80&w=1200&auto=format&fit=crop" class="img-fluid border-glass glow-border" style="box-shadow: var(--glow-shadow);" alt="Trusted Technology Partner">
+                </div>
+                <div class="col-lg-7 order-lg-1" data-aos="fade-right">
+                    <span class="section-subtitle">Premium Standards</span>
+                    <h2 class="section-title text-start">Your Trusted Technology Partner</h2>
+                    <p>Royal Computers & Communications stands as the leading provider of high-grade technical installations and sales in Rajamahendravaram. We cater to businesses, educational institutions, and technology enthusiasts with a standard of luxury execution.</p>
+                    
+                    <div class="row g-3">
+                        <div class="col-md-6 d-flex align-items-center">
+                            <i class="fas fa-circle-check text-gold me-3 fs-5"></i>
+                            <span class="text-white-50">100% Genuine Branded Equipment</span>
+                        </div>
+                        <div class="col-md-6 d-flex align-items-center">
+                            <i class="fas fa-circle-check text-gold me-3 fs-5"></i>
+                            <span class="text-white-50">Budget-Optimized Pricing Models</span>
+                        </div>
+                        <div class="col-md-6 d-flex align-items-center">
+                            <i class="fas fa-circle-check text-gold me-3 fs-5"></i>
+                            <span class="text-white-50">Professional Maintenance Contracts</span>
+                        </div>
+                        <div class="col-md-6 d-flex align-items-center">
+                            <i class="fas fa-circle-check text-gold me-3 fs-5"></i>
+                            <span class="text-white-50">Instant WhatsApp Booking Desk</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         BRANDS WE DEAL WITH
+         ========================================== -->
+    <section class="brands-section bg-dark">
+        <div class="container mb-4">
+            <div class="text-center" data-aos="fade-up">
+                <span class="section-subtitle">Distributing The Finest Brands</span>
+                <h2 class="section-title mb-0">Authorized Sales & Support</h2>
+            </div>
+        </div>
+        
+        <div class="brands-slider-container">
+            <div class="brands-track">
+                <!-- Slide 1 -->
+                <div class="brand-slide">
+                    <a href="service.html">
+                        <div class="brand-card-inner">
+                            <i class="fa-brands fa-hp"></i>
+                            <span>HP</span>
+                        </div>
+                    </a>
+                </div>
+                <!-- Slide 2 -->
+                <div class="brand-slide">
+                    <a href="service.html">
+                        <div class="brand-card-inner">
+                            <i class="fa-solid fa-laptop-code"></i>
+                            <span>DELL</span>
+                        </div>
+                    </a>
+                </div>
+                <!-- Slide 3 -->
+                <div class="brand-slide">
+                    <a href="service.html">
+                        <div class="brand-card-inner">
+                            <i class="fa-solid fa-keyboard"></i>
+                            <span>LENOVO</span>
+                        </div>
+                    </a>
+                </div>
+                <!-- Slide 4 -->
+                <div class="brand-slide">
+                    <a href="service.html">
+                        <div class="brand-card-inner">
+                            <i class="fa-solid fa-microchip"></i>
+                            <span>ASUS</span>
+                        </div>
+                    </a>
+                </div>
+                <!-- Slide 5 -->
+                <div class="brand-slide">
+                    <a href="service.html">
+                        <div class="brand-card-inner">
+                            <i class="fa-solid fa-desktop"></i>
+                            <span>ACER</span>
+                        </div>
+                    </a>
+                </div>
+                <!-- Slide 6 -->
+                <div class="brand-slide">
+                    <a href="service.html">
+                        <div class="brand-card-inner">
+                            <i class="fa-solid fa-computer-mouse"></i>
+                            <span>LOGITECH</span>
+                        </div>
+                    </a>
+                </div>
+                <!-- Slide 7 -->
+                <div class="brand-slide">
+                    <a href="service.html">
+                        <div class="brand-card-inner">
+                            <i class="fa-solid fa-print"></i>
+                            <span>CANON</span>
+                        </div>
+                    </a>
+                </div>
+                <!-- Slide 8 -->
+                <div class="brand-slide">
+                    <a href="service.html">
+                        <div class="brand-card-inner">
+                            <i class="fa-solid fa-database"></i>
+                            <span>EPSON</span>
+                        </div>
+                    </a>
+                </div>
+                
+                <!-- Repeat for infinite loop -->
+                <!-- Slide 1 -->
+                <div class="brand-slide">
+                    <a href="service.html">
+                        <div class="brand-card-inner">
+                            <i class="fa-brands fa-hp"></i>
+                            <span>HP</span>
+                        </div>
+                    </a>
+                </div>
+                <!-- Slide 2 -->
+                <div class="brand-slide">
+                    <a href="service.html">
+                        <div class="brand-card-inner">
+                            <i class="fa-solid fa-laptop-code"></i>
+                            <span>DELL</span>
+                        </div>
+                    </a>
+                </div>
+                <!-- Slide 3 -->
+                <div class="brand-slide">
+                    <a href="service.html">
+                        <div class="brand-card-inner">
+                            <i class="fa-solid fa-keyboard"></i>
+                            <span>LENOVO</span>
+                        </div>
+                    </a>
+                </div>
+                <!-- Slide 4 -->
+                <div class="brand-slide">
+                    <a href="service.html">
+                        <div class="brand-card-inner">
+                            <i class="fa-solid fa-microchip"></i>
+                            <span>ASUS</span>
+                        </div>
+                    </a>
+                </div>
+                <!-- Slide 5 -->
+                <div class="brand-slide">
+                    <a href="service.html">
+                        <div class="brand-card-inner">
+                            <i class="fa-solid fa-desktop"></i>
+                            <span>ACER</span>
+                        </div>
+                    </a>
+                </div>
+                <!-- Slide 6 -->
+                <div class="brand-slide">
+                    <a href="service.html">
+                        <div class="brand-card-inner">
+                            <i class="fa-solid fa-computer-mouse"></i>
+                            <span>LOGITECH</span>
+                        </div>
+                    </a>
+                </div>
+                <!-- Slide 7 -->
+                <div class="brand-slide">
+                    <a href="service.html">
+                        <div class="brand-card-inner">
+                            <i class="fa-solid fa-print"></i>
+                            <span>CANON</span>
+                        </div>
+                    </a>
+                </div>
+                <!-- Slide 8 -->
+                <div class="brand-slide">
+                    <a href="service.html">
+                        <div class="brand-card-inner">
+                            <i class="fa-solid fa-database"></i>
+                            <span>EPSON</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         CUSTOMER TESTIMONIALS (2 per slide)
+         ========================================== -->
+    <section class="section-padding bg-dark testimonials-section" style="border-top:1px solid var(--border-glass);">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <span class="section-subtitle">Words of Trust</span>
+                <h2 class="section-title">Client Testimonials</h2>
+            </div>
+
+            <div class="testimonials-carousel-wrap" data-aos="fade-up" data-aos-delay="150">
+                <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
+
+                    <!-- Indicators -->
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="0" class="active" aria-current="true"></button>
+                        <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="1"></button>
+                        <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="2"></button>
+                    </div>
+
+                    <div class="carousel-inner">
+
+                        <!-- Slide 1: Rajesh + Sneha -->
+                        <div class="carousel-item active">
+                            <div class="row g-4 testimonials-row">
+                                <!-- Card 1 -->
+                                <div class="col-md-6">
+                                    <div class="testimonial-new-card">
+                                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=150&auto=format&fit=crop" class="testimonial-avatar" alt="Rajesh Kumar">
+                                        <div class="testimonial-rating">
+                                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                        </div>
+                                        <p class="testimonial-text">"Mohammed Mansur Ahmed Khan provided luxury-class support for our office networking and computer upgrades. Assembled systems work flawlessly. CCTV installation is top-notch."</p>
+                                        <h5 class="testimonial-author">Rajesh Kumar</h5>
+                                        <span class="testimonial-role">Corporate Manager</span>
+                                    </div>
+                                </div>
+                                <!-- Card 2 (hidden on mobile) -->
+                                <div class="col-md-6 d-none d-md-flex">
+                                    <div class="testimonial-new-card">
+                                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=150&auto=format&fit=crop" class="testimonial-avatar" alt="Sneha Rao">
+                                        <div class="testimonial-rating">
+                                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                        </div>
+                                        <p class="testimonial-text">"I bought a refurbished premium laptop from Royal Computers, and it looks and runs like brand new. Post-purchase support and prompt WhatsApp response are truly outstanding."</p>
+                                        <h5 class="testimonial-author">Sneha Rao</h5>
+                                        <span class="testimonial-role">Creative Freelancer</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Slide 2: Sneha (mobile) + Kalyan -->
+                        <div class="carousel-item">
+                            <div class="row g-4 testimonials-row">
+                                <!-- Card 1 -->
+                                <div class="col-md-6">
+                                    <div class="testimonial-new-card">
+                                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=150&auto=format&fit=crop" class="testimonial-avatar" alt="Kalyan Naidu">
+                                        <div class="testimonial-rating">
+                                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                                        </div>
+                                        <p class="testimonial-text">"They are our reliable tech partners for all printer maintenance contracts and scanner sales. Honest pricing, original spares, and experts who know exactly what they are doing."</p>
+                                        <h5 class="testimonial-author">Kalyan Naidu</h5>
+                                        <span class="testimonial-role">Education Director</span>
+                                    </div>
+                                </div>
+                                <!-- Card 2 (hidden on mobile) -->
+                                <div class="col-md-6 d-none d-md-flex">
+                                    <div class="testimonial-new-card">
+                                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=150&auto=format&fit=crop" class="testimonial-avatar" alt="Venkat Rao">
+                                        <div class="testimonial-rating">
+                                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                        </div>
+                                        <p class="testimonial-text">"Set up CCTV surveillance and networking for our office campus. Professional team, clean cable management, and remote access setup done perfectly. Highly recommended!"</p>
+                                        <h5 class="testimonial-author">Venkat Rao</h5>
+                                        <span class="testimonial-role">Business Owner</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Slide 3: Extra -->
+                        <div class="carousel-item">
+                            <div class="row g-4 testimonials-row">
+                                <!-- Card 1 -->
+                                <div class="col-md-6">
+                                    <div class="testimonial-new-card">
+                                        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=150&auto=format&fit=crop" class="testimonial-avatar" alt="Priya Sharma">
+                                        <div class="testimonial-rating">
+                                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                        </div>
+                                        <p class="testimonial-text">"Excellent AMC service! Our entire lab of 30 computers is maintained perfectly. Quick response, genuine parts, and very affordable pricing. Royal Computers is simply the best."</p>
+                                        <h5 class="testimonial-author">Priya Sharma</h5>
+                                        <span class="testimonial-role">School Principal</span>
+                                    </div>
+                                </div>
+                                <!-- Card 2 (hidden on mobile) -->
+                                <div class="col-md-6 d-none d-md-flex">
+                                    <div class="testimonial-new-card">
+                                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=150&auto=format&fit=crop" class="testimonial-avatar" alt="Suresh Babu">
+                                        <div class="testimonial-rating">
+                                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                        </div>
+                                        <p class="testimonial-text">"Custom assembled gaming PC built by Royal Computers exceeds all expectations. Performance is insane, temperature management is perfect, and the build quality is premium."</p>
+                                        <h5 class="testimonial-author">Suresh Babu</h5>
+                                        <span class="testimonial-role">Gaming Enthusiast</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div><!-- /carousel-inner -->
+
+                    <!-- Premium Arrow Controls -->
+                    <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+
+                </div><!-- /carousel -->
+            </div><!-- /testimonials-carousel-wrap -->
+        </div>
+    </section>
+
+    <!-- ==========================================
+         CALL TO ACTION (CTA)
+         ========================================== -->
+    <section class="cta-section">
+        <div class="container" data-aos="zoom-in">
+            <h2>Ready To Upgrade Your Technology?</h2>
+            <p>Connect with the sales & service experts of Rajamahendravaram. Request custom assemblies, pricing lists, or CCTV surveillance site assessments today.</p>
+            <a href="contact.html" class="btn btn-gold">Book Now</a>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         FOOTER
+         ========================================== -->
+    <footer>
+        <div class="container">
+            <div class="row g-5">
+                <!-- Column 1: Info -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer-logo">ROYAL <span>COMPUTERS</span></div>
+                    <p class="footer-desc">Premium sales & service centre dealing with branded laptops, desktops, assembled rigs, CCTV cameras, and all computer accessories. Experience premium corporate execution.</p>
+                    <div class="social-links-grid">
+                        <a href="https://facebook.com" target="_blank" class="social-icon-btn"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://instagram.com" target="_blank" class="social-icon-btn"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/919849520278" target="_blank" class="social-icon-btn"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://youtube.com" target="_blank" class="social-icon-btn"><i class="fab fa-youtube"></i></a>
+                        <a href="https://linkedin.com" target="_blank" class="social-icon-btn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <!-- Column 2: Quick Links -->
+                <div class="col-lg-2 col-md-6">
+                    <h5 class="footer-heading">Quick Links</h5>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="service.html">Services</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Services -->
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="footer-heading">Our Services</h5>
+                    <ul class="footer-links">
+                        <li><a href="service.html">Desktop & Laptop Sales</a></li>
+                        <li><a href="service.html">Computer Diagnostics</a></li>
+                        <li><a href="service.html">CCTV Systems Setup</a></li>
+                        <li><a href="service.html">Custom Workstation Builds</a></li>
+                        <li><a href="service.html">Annual Maintenance Contract</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Address Info -->
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="footer-heading">Contact Info</h5>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-location-dot"></i>
+                        <span>36-26-3, Ballavari Street,<br>Behind Kotipalli bus stand,<br>Innispeta, Rajamahendravaram,<br>East Godavari District, AP - 533101</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+91 9849520278</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>khan_mamd@yahoo.co.in</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Copyright and socials -->
+            <div class="footer-bottom">
+                <div class="row align-items-center">
+                    <div class="col-md-6 text-center text-md-start">
+                        <p class="copyright-text">&copy; 2026 Royal Computers & Communications. All Rights Reserved. Designed with luxury.</p>
+                    </div>
+                    <div class="col-md-6 text-center text-md-end mt-2 mt-md-0">
+                        <p class="copyright-text" style="font-size: 0.8rem;">Owner: Mohammed Mansur Ahmed Khan</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==========================================
+         FLOATING WIDGETS
+         ========================================== -->
+    <a href="https://wa.me/919849520278?text=Hello%20Royal%20Computers,%20I%20would%20like%20to%20inquire%20about%20your%20services." class="floating-whatsapp" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <div id="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+
+    <!-- ==========================================
+         SCRIPT FILES
+         ========================================== -->
+    <!-- Bootstrap 5 Bundle JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- AOS Scroll Animations JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true,
+            easing: 'ease-out-cubic'
+        });
+    </script>
+    
+    <!-- Custom JS -->
+    <script src="js/main.js"></script>
+</body>
+</html>

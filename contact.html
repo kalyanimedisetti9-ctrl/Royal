@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Royal Computers &amp; Communications</title>
+    <meta name="description" content="Contact Royal Computers &amp; Communications in Rajamahendravaram. Call 9849520278 or send a WhatsApp message for laptop repairs, printer services, or CCTV setups.">
+    <meta name="keywords" content="Contact Royal Computers, Rajahmundry Computer Store Address, Mansur Khan Phone Number">
+    <meta name="author" content="Mohammed Mansur Ahmed Khan">
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- FontAwesome 6 Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+    
+    <!-- AOS Scroll Animations CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Custom Luxury Styling -->
+    <link href="css/style.css" rel="stylesheet">
+
+    <style>
+        /* =============================================
+           CONTACT PAGE – SELF-CONTAINED STYLES
+           ============================================= */
+
+        /* ---- Centered form wrapper ---- */
+        .contact-center-wrap {
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
+        /* ---- Glassmorphism Form Card ---- */
+        .contact-glass-card {
+            background: rgba(14, 14, 14, 0.82);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border: 1.5px solid rgba(223,183,92,0.22);
+            border-radius: 18px;
+            padding: 52px 48px;
+            box-shadow: 0 12px 50px rgba(0,0,0,0.55),
+                        0 0 0 1px rgba(223,183,92,0.06),
+                        0 0 40px rgba(223,183,92,0.05) inset;
+            transition: border-color 0.4s ease, box-shadow 0.4s ease;
+        }
+        .contact-glass-card:hover {
+            border-color: rgba(223,183,92,0.45);
+            box-shadow: 0 16px 60px rgba(0,0,0,0.6),
+                        0 0 35px rgba(223,183,92,0.18);
+        }
+        @media (max-width: 575.98px) { .contact-glass-card { padding: 35px 22px; } }
+
+        /* ---- Form heading ---- */
+        .contact-form-heading {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+            background: linear-gradient(135deg, #fff 30%, #dfb75c 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .contact-form-sub {
+            color: #a6a6a6;
+            font-size: 0.92rem;
+            margin-bottom: 36px;
+        }
+
+        /* ---- Input Fields ---- */
+        .cf-group {
+            position: relative;
+            margin-bottom: 22px;
+        }
+        .cf-group .cf-icon {
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: rgba(223,183,92,0.5);
+            font-size: 0.85rem;
+            pointer-events: none;
+            transition: color 0.3s ease;
+        }
+        .cf-group.textarea-group .cf-icon {
+            top: 18px;
+            transform: none;
+        }
+        .cf-input {
+            width: 100%;
+            background: rgba(255,255,255,0.04);
+            border: 1.5px solid rgba(223,183,92,0.18);
+            border-radius: 8px;
+            color: #fff;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.92rem;
+            padding: 14px 16px 14px 42px;
+            outline: none;
+            transition: all 0.35s ease;
+            caret-color: #dfb75c;
+        }
+        .cf-input:focus {
+            border-color: rgba(223,183,92,0.7);
+            background: rgba(255,255,255,0.07);
+            box-shadow: 0 0 14px rgba(223,183,92,0.18), 0 0 0 2px rgba(223,183,92,0.08);
+        }
+        .cf-input:focus + .cf-icon,
+        .cf-group:focus-within .cf-icon {
+            color: #dfb75c;
+        }
+        .cf-input::placeholder { color: rgba(166,166,166,0.7); }
+        textarea.cf-input { resize: vertical; min-height: 135px; padding-top: 14px; }
+
+        /* ---- Submit Button ---- */
+        .cf-submit-btn {
+            width: 100%;
+            height: 56px;
+            border: none;
+            border-radius: 8px;
+            background: linear-gradient(135deg, #f7e7c4 0%, #dfb75c 50%, #b88d32 100%);
+            color: #0a0a0a;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.38s cubic-bezier(0.16,1,0.3,1);
+            box-shadow: 0 6px 22px rgba(223,183,92,0.3);
+            margin-top: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        .cf-submit-btn::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(255,255,255,0);
+            transition: background 0.35s ease;
+        }
+        .cf-submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 35px rgba(223,183,92,0.55), 0 0 60px rgba(223,183,92,0.2);
+        }
+        .cf-submit-btn:hover::after { background: rgba(255,255,255,0.08); }
+        .cf-submit-btn:active { transform: translateY(0); }
+
+        /* Success toast */
+        .cf-toast {
+            display: none;
+            background: linear-gradient(135deg, #1a1a1a, #111);
+            border: 1.5px solid #dfb75c;
+            border-radius: 10px;
+            padding: 16px 22px;
+            color: #dfb75c;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.9rem;
+            margin-top: 16px;
+            text-align: center;
+            box-shadow: 0 0 20px rgba(223,183,92,0.2);
+            animation: toastIn 0.5s ease;
+        }
+        @keyframes toastIn {
+            from { opacity:0; transform:translateY(12px); }
+            to   { opacity:1; transform:translateY(0); }
+        }
+
+        /* ---- MAP SECTION ---- */
+        .map-section {
+            padding: 0 0 90px;
+        }
+        .map-heading-wrap {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .map-heading {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #fff 30%, #dfb75c 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 12px;
+        }
+        .map-divider {
+            width: 80px;
+            height: 2px;
+            background: linear-gradient(135deg, #f7e7c4, #dfb75c, #b88d32);
+            margin: 0 auto 8px;
+            border-radius: 2px;
+            box-shadow: 0 0 10px rgba(223,183,92,0.4);
+        }
+        .map-subtitle {
+            color: #a6a6a6;
+            font-size: 0.9rem;
+            font-family: 'Outfit', sans-serif;
+            letter-spacing: 1px;
+        }
+        .map-container {
+            width: 100%;
+            height: 540px;
+            border-radius: 18px;
+            overflow: hidden;
+            border: 1.5px solid rgba(223,183,92,0.28);
+            box-shadow: 0 8px 40px rgba(0,0,0,0.5), 0 0 30px rgba(223,183,92,0.12);
+            transition: border-color 0.4s ease, box-shadow 0.4s ease;
+        }
+        .map-container:hover {
+            border-color: rgba(223,183,92,0.65);
+            box-shadow: 0 12px 50px rgba(0,0,0,0.6), 0 0 40px rgba(223,183,92,0.22);
+        }
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: block;
+        }
+        @media (max-width: 767.98px) {
+            .map-container { height: 340px; }
+            .map-heading { font-size: 1.7rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ==========================================
+         PRELOADER
+         ========================================== -->
+    <div id="preloader">
+        <div class="loader-content">
+            <div class="loader-logo">ROYAL <span>COMPUTERS</span></div>
+            <div class="loader-spinner"></div>
+        </div>
+    </div>
+
+    <!-- ==========================================
+         SCROLL PROGRESS BAR
+         ========================================== -->
+    <div class="scroll-progress-container">
+        <div class="scroll-progress-bar"></div>
+    </div>
+
+    <!-- ==========================================
+         NAVBAR
+         ========================================== -->
+    <nav class="navbar navbar-expand-lg fixed-top navbar-dark navbar-scrolled">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <div class="navbar-logo-circle">
+                    <img src="images/logo.png" alt="Royal Computers Logo">
+                </div>
+                ROYAL <span>COMPUTERS</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#royalNavbar" aria-controls="royalNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="collapse navbar-collapse" id="royalNavbar">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="service.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="contact.html">Contact</a></li>
+                    <li class="nav-item ms-lg-3 nav-btn-container">
+                        <a class="btn btn-gold" href="contact.html">Book Now</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ==========================================
+         CONTACT BANNER
+         ========================================== -->
+    <section class="contact-banner-section">
+        <!-- Dark overlay -->
+        <div class="contact-banner-overlay"></div>
+        <!-- Centered content -->
+        <div class="contact-banner-content" data-aos="fade-up">
+            <p class="contact-banner-sub">Get in Touch</p>
+            <h1 class="contact-banner-title">Contact <span>Us</span></h1>
+            <p class="contact-banner-desc">We're just a message away — for premium support, sales, and service</p>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb justify-content-center mb-0">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Contact</li>
+                </ol>
+            </nav>
+        </div>
+    </section>
+
+    <style>
+        /* ---- Contact Banner ---- */
+        .contact-banner-section {
+            position: relative;
+            width: 100%;
+            height: 480px;
+            background-image: url('https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=1920&auto=format&fit=crop'); /* Premium support/tech theme */
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        /* Fallback if fixed attachment causes issues on mobile */
+        @media (max-width: 767.98px) {
+            .contact-banner-section {
+                height: 380px;
+                background-attachment: scroll;
+            }
+        }
+        .contact-banner-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                135deg,
+                rgba(3, 3, 3, 0.80) 0%,
+                rgba(10, 10, 10, 0.65) 50%,
+                rgba(3, 3, 3, 0.82) 100%
+            );
+            z-index: 1;
+        }
+        .contact-banner-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 0 20px;
+            width: 100%;
+        }
+        .contact-banner-sub {
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.82rem;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            color: #dfb75c;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        .contact-banner-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.6rem;
+            font-weight: 700;
+            color: #ffffff;
+            line-height: 1.15;
+            margin-bottom: 16px;
+            text-shadow: 0 4px 30px rgba(0,0,0,0.6);
+        }
+        .contact-banner-title span {
+            background: linear-gradient(135deg, #f7e7c4 0%, #dfb75c 50%, #b88d32 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .contact-banner-desc {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1rem;
+            color: rgba(255,255,255,0.72);
+            margin-bottom: 22px;
+            letter-spacing: 0.5px;
+        }
+        /* Breadcrumb inside banner */
+        .contact-banner-section .breadcrumb {
+            justify-content: center;
+            background: transparent;
+            padding: 0;
+            margin: 0;
+        }
+        .contact-banner-section .breadcrumb-item a {
+            color: #dfb75c;
+            text-decoration: none;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.82rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+        .contact-banner-section .breadcrumb-item a:hover { color: #f7e7c4; }
+        .contact-banner-section .breadcrumb-item.active {
+            color: rgba(255,255,255,0.55);
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.82rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        .contact-banner-section .breadcrumb-item + .breadcrumb-item::before {
+            color: rgba(223,183,92,0.5);
+            content: "/";
+        }
+        @media (max-width: 575.98px) {
+            .contact-banner-title { font-size: 2.4rem; }
+            .contact-banner-desc  { font-size: 0.88rem; }
+        }
+    </style>
+
+    <!-- ==========================================
+         CENTERED CONTACT FORM SECTION
+         ========================================== -->
+    <section class="section-padding bg-dark" id="contact-form-section" style="padding-top: 90px;">
+        <div class="container">
+
+            <!-- Section heading -->
+            <div class="text-center mb-5" data-aos="fade-up">
+                <span class="section-subtitle">Get In Touch</span>
+                <h2 class="section-title">Send Us A Message</h2>
+                <p style="color:#a6a6a6; max-width:540px; margin:14px auto 0; font-size:0.92rem;">
+                    Fill in the details below and your message will be sent directly to our WhatsApp instantly.
+                </p>
+            </div>
+
+            <!-- Centered glass form -->
+            <div class="contact-center-wrap" data-aos="fade-up" data-aos-delay="150">
+                <div class="contact-glass-card">
+
+                    <div class="contact-form-heading">Let's Connect</div>
+                    <p class="contact-form-sub">Mohammed Mansur Ahmed Khan — Rajamahendravaram's trusted tech expert</p>
+
+                    <form id="contactForm" novalidate>
+                        <!-- Row 1: Name + Email -->
+                        <div class="row g-3">
+                            <div class="col-sm-6">
+                                <div class="cf-group">
+                                    <input type="text" class="cf-input" id="cf-name" placeholder="Your Name *" required>
+                                    <i class="fas fa-user cf-icon"></i>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="cf-group">
+                                    <input type="email" class="cf-input" id="cf-email" placeholder="Your Email *" required>
+                                    <i class="fas fa-envelope cf-icon"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Row 2: Phone + Subject -->
+                        <div class="row g-3">
+                            <div class="col-sm-6">
+                                <div class="cf-group">
+                                    <input type="tel" class="cf-input" id="cf-phone" placeholder="Phone Number *" required>
+                                    <i class="fas fa-phone cf-icon"></i>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="cf-group">
+                                    <input type="text" class="cf-input" id="cf-subject" placeholder="Subject" >
+                                    <i class="fas fa-tag cf-icon"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Message -->
+                        <div class="cf-group textarea-group">
+                            <textarea class="cf-input" id="cf-message" placeholder="Your Message (laptop specs, CCTV requirement, repair details, etc.) *" required></textarea>
+                            <i class="fas fa-comment cf-icon"></i>
+                        </div>
+
+                        <!-- Submit -->
+                        <button type="submit" class="cf-submit-btn" id="cf-submit">
+                            <i class="fab fa-whatsapp" style="font-size:1.2rem;"></i>
+                            SEND MESSAGE
+                        </button>
+
+                        <!-- Toast feedback -->
+                        <div class="cf-toast" id="cf-toast">
+                            <i class="fab fa-whatsapp me-2"></i> Opening WhatsApp with your message details…
+                        </div>
+                    </form>
+
+                </div>
+            </div><!-- /contact-center-wrap -->
+
+        </div>
+    </section>
+
+    <!-- ==========================================
+         OUR LOCATION / MAP SECTION
+         ========================================== -->
+    <section class="map-section" id="our-location">
+        <div class="container">
+
+            <!-- Heading -->
+            <div class="map-heading-wrap" data-aos="fade-up">
+                <p class="section-subtitle">Find Us</p>
+                <h2 class="map-heading">Our Location</h2>
+                <div class="map-divider"></div>
+                <p class="map-subtitle">36-26-3, Ballavari Street, Behind Kotipalli Bus Stand, Innispeta, Rajamahendravaram — 533101</p>
+            </div>
+
+            <!-- Full-Width Colorful Map -->
+            <div class="map-container" data-aos="fade-up" data-aos-delay="150">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3817.4940295637697!2d81.77573597497457!3d17.006009583489786!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a37a4a58de54437%3A0xca73a2d0bdbde33!2sKotipalli%20Bus%20Stand%20Rd%2C%20Innispeta%2C%20Rajamahendravaram%2C%20Andhra%20Pradesh%20533101!5e0!3m2!1sen!2sin!4v1719219600000!5m2!1sen!2sin"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                    title="Royal Computers Location - Rajamahendravaram">
+                </iframe>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ==========================================
+         FOOTER
+         ========================================== -->
+    <footer>
+        <div class="container">
+            <div class="row g-5">
+                <!-- Column 1: Info -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer-logo">ROYAL <span>COMPUTERS</span></div>
+                    <p class="footer-desc">Premium sales &amp; service centre dealing with branded laptops, desktops, assembled rigs, CCTV cameras, and all computer accessories. Experience premium corporate execution.</p>
+                    <div class="social-links-grid">
+                        <a href="https://facebook.com" target="_blank" class="social-icon-btn"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://instagram.com" target="_blank" class="social-icon-btn"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/919849520278" target="_blank" class="social-icon-btn"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://youtube.com" target="_blank" class="social-icon-btn"><i class="fab fa-youtube"></i></a>
+                        <a href="https://linkedin.com" target="_blank" class="social-icon-btn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <!-- Column 2: Quick Links -->
+                <div class="col-lg-2 col-md-6">
+                    <h5 class="footer-heading">Quick Links</h5>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="service.html">Services</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Services -->
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="footer-heading">Our Services</h5>
+                    <ul class="footer-links">
+                        <li><a href="service.html">Desktop &amp; Laptop Sales</a></li>
+                        <li><a href="service.html">Computer Diagnostics</a></li>
+                        <li><a href="service.html">CCTV Systems Setup</a></li>
+                        <li><a href="service.html">Custom Workstation Builds</a></li>
+                        <li><a href="service.html">Annual Maintenance Contract</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Address Info -->
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="footer-heading">Contact Info</h5>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-location-dot"></i>
+                        <span>36-26-3, Ballavari Street,<br>Behind Kotipalli bus stand,<br>Innispeta, Rajamahendravaram,<br>East Godavari District, AP - 533101</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+91 9849520278</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>khan_mamd@yahoo.co.in</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div class="footer-bottom">
+                <div class="row align-items-center">
+                    <div class="col-md-6 text-center text-md-start">
+                        <p class="copyright-text">&copy; 2026 Royal Computers &amp; Communications. All Rights Reserved. Designed with luxury.</p>
+                    </div>
+                    <div class="col-md-6 text-center text-md-end mt-2 mt-md-0">
+                        <p class="copyright-text" style="font-size:0.8rem;">Owner: Mohammed Mansur Ahmed Khan</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==========================================
+         FLOATING WIDGETS
+         ========================================== -->
+    <a href="https://wa.me/919849520278?text=Hello%20Royal%20Computers,%20I%20would%20like%20to%20inquire%20about%20your%20services." class="floating-whatsapp" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <div id="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- ==========================================
+         SCRIPT FILES
+         ========================================== -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true, easing: 'ease-out-cubic' });
+    </script>
+
+    <!-- URL subject param auto-fill -->
+    <script>
+        (function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            const subject = urlParams.get('subject');
+            if (subject) {
+                const sf = document.getElementById('cf-subject');
+                if (sf) sf.value = decodeURIComponent(subject);
+            }
+        })();
+    </script>
+
+    <!-- Custom JS (preloader, navbar, counter, scroll bar, etc.) -->
+    <script src="js/main.js"></script>
+
+    <!-- ==========================================
+         WHATSAPP FORM SUBMISSION (self-contained)
+         ========================================== -->
+    <script>
+    (function () {
+        'use strict';
+
+        const WHATSAPP_NUMBER = '919849520278';   // Country code + number, no + sign
+
+        const form    = document.getElementById('contactForm');
+        const toast   = document.getElementById('cf-toast');
+        const submitBtn = document.getElementById('cf-submit');
+
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const name    = document.getElementById('cf-name').value.trim();
+            const email   = document.getElementById('cf-email').value.trim();
+            const phone   = document.getElementById('cf-phone').value.trim();
+            const subject = document.getElementById('cf-subject').value.trim();
+            const message = document.getElementById('cf-message').value.trim();
+
+            // Basic validation
+            if (!name) { highlight('cf-name', 'Name is required'); return; }
+            if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { highlight('cf-email', 'Valid email is required'); return; }
+            if (!phone) { highlight('cf-phone', 'Phone number is required'); return; }
+            if (!message) { highlight('cf-message', 'Message is required'); return; }
+
+            // Build the WhatsApp message
+            const waText =
+                `*📩 New Enquiry — Royal Computers Website*\n\n` +
+                `*Name:* ${name}\n` +
+                `*Email:* ${email}\n` +
+                `*Phone:* ${phone}\n` +
+                (subject ? `*Subject:* ${subject}\n` : '') +
+                `\n*Message:*\n${message}\n\n` +
+                `_Sent from the Royal Computers contact form_`;
+
+            const waURL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(waText)}`;
+
+            // Show feedback toast
+            toast.style.display = 'block';
+
+            // Button loading state
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin" style="font-size:1.1rem;"></i> &nbsp;Opening WhatsApp…';
+            submitBtn.disabled = true;
+
+            // Open WhatsApp after short delay
+            setTimeout(() => {
+                window.open(waURL, '_blank');
+
+                // Reset form after sending
+                setTimeout(() => {
+                    form.reset();
+                    toast.style.display = 'none';
+                    submitBtn.innerHTML = '<i class="fab fa-whatsapp" style="font-size:1.2rem;"></i> SEND MESSAGE';
+                    submitBtn.disabled = false;
+                }, 3000);
+            }, 600);
+        });
+
+        function highlight(id, msg) {
+            const el = document.getElementById(id);
+            if (!el) return;
+            el.style.borderColor = '#e74c3c';
+            el.style.boxShadow   = '0 0 12px rgba(231,76,60,0.3)';
+            el.focus();
+            el.setAttribute('placeholder', msg);
+            setTimeout(() => {
+                el.style.borderColor = '';
+                el.style.boxShadow   = '';
+            }, 2500);
+        }
+    })();
+    </script>
+
+</body>
+</html>
