@@ -384,15 +384,45 @@ h1, h2, h3, h4, h5, h6 {
         transition: var(--transition-smooth);
     }
     .navbar-nav {
-        text-align: center;
+        text-align: right;
+        align-items: flex-end;
     }
     .navbar-nav .nav-link {
-        margin: 10px 0;
+        margin: 12px 0;
         display: inline-block;
+        font-size: 1.1rem;
     }
     .nav-btn-container {
-        text-align: center;
-        margin-top: 15px;
+        text-align: right;
+        margin-top: 20px;
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    /* --- Mobile Luxury Button Overrides --- */
+    .btn-gold, .btn-outline-gold {
+        background: linear-gradient(135deg, #B8860B, #D4AF37, #FFD700) !important;
+        color: #000000 !important;
+        border: 1px solid #FFDF00 !important;
+        box-shadow: 0 5px 25px rgba(184, 134, 11, 0.6), inset 0 2px 5px rgba(255, 255, 255, 0.5) !important;
+        opacity: 1 !important;
+        font-weight: 700 !important;
+        text-shadow: 0 1px 1px rgba(255, 255, 255, 0.3) !important;
+        padding: 14px 32px !important;
+        font-size: 0.95rem !important;
+        border-radius: 4px !important;
+        position: relative;
+        z-index: 1000 !important;
+        /* Prevent browser dark mode auto-styling */
+        -webkit-appearance: none !important;
+        appearance: none !important;
+    }
+    .btn-gold:hover, .btn-outline-gold:hover, .btn-gold:active, .btn-outline-gold:active {
+        background: linear-gradient(135deg, #FFD700, #D4AF37, #B8860B) !important;
+        box-shadow: 0 8px 30px rgba(184, 134, 11, 0.8), inset 0 2px 8px rgba(255, 255, 255, 0.6) !important;
+        transform: translateY(-2px) !important;
+        color: #000000 !important;
     }
 }
 
